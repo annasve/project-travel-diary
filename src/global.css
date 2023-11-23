@@ -1,0 +1,97 @@
+/*inter font*/
+@import url('https://fonts.googleapis.com/css2?&family=Inter:wght@400&display=swap');
+
+/*caudex font*/
+@import url('https://fonts.googleapis.com/css2?&family=Caudex:wght@400;700&display=swap');
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Inter', sans-serif;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+
+  color: #fff0df;
+  /*↑creamy white*/
+  background-color: #c05f50;
+  /*↑temporary background color*/
+}
+
+/*multipurpose container*/
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #BC2F19;
+}
+
+.caudex {
+  font-family: "Caudex", serif;
+}
+
+/*-----menu-----*/
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0.5rem;
+  border-bottom: 1px solid #fff0df;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  /* padding: 5px; */
+}
+
+
+.navbar {
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navlink {
+  text-decoration: none;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  color: #fff0df;
+  font-size: 1.5rem;
+}
+
+.navlink:hover {
+  border-bottom: 5px solid white;
+}
+
+/*---*/
+/*-----media for header-----*/
+@media (max-width: 450px) {
+  header {
+    display: block;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .logo__container {
+    display: none;
+  }
+
+  .navbar {
+    flex-direction: column;
+    ;
+  }
+
+  .navlink {
+    font-size: 0.5rem;
+  }
+}
+
+/*-------------*/
+
+main {
+  padding: 2rem;
+}
