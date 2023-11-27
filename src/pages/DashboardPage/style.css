@@ -1,3 +1,8 @@
+body {
+  background-color: #e4eaea;
+  background-image: none;
+}
+
 .dashboard {
   width: 100%;
   background-color: white;
