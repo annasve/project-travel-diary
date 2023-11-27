@@ -4,6 +4,7 @@ import {
   RouterProvider,
   Link,
   Outlet,
+  useLocation,
 } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { PlacesPage } from './pages/PlacesPage';
@@ -14,6 +15,15 @@ import './global.css';
 import logo2Url from './pages/HomePage/img/logo-36px.png';
 
 const App = () => {
+  const location = useLocation();
+  const linkClass = (link) => {
+    if (link === location.pathname) {
+      return 'navlink navlink-selected';
+    } else {
+      return 'navlink';
+    }
+  };
+
   return (
     <div className="container">
       <header>
@@ -21,17 +31,17 @@ const App = () => {
           <img src={logo2Url} alt="logo as image" />
         </div>
         <nav className="navbar caudex">
-          <Link to="/" className="navlink">
+          <Link to="/" className={linkClass('/')}>
             home
           </Link>
-          <Link to="/places" className="navlink">
+          <Link to="/places" className={linkClass('/places')}>
             places
           </Link>
-          <Link to="/dashboard" className="navlink">
+          <Link to="/dashboard" className={linkClass('/dashboard')}>
             dashboard
           </Link>
-          <Link to="/dashboard" className="navlink">
-            map
+          <Link to="/trip" className={linkClass('/trip')}>
+            add your trip
           </Link>
         </nav>
       </header>
@@ -46,7 +56,7 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />,
     children: [
-      { path: '/home', element: <HomePage /> },
+      { path: '', element: <HomePage /> },
       { path: '/places', element: <PlacesPage /> },
       { path: '/dashboard', element: <DashboardPage /> },
     ],
