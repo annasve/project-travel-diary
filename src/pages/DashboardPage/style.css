@@ -1,0 +1,50 @@
+.dashboard {
+  width: 100%;
+  background-color: white;
+}
+
+#map {
+  height: 80vh;
+  width: 100%;
+}
+
+.jvm-zoom {
+  display: none;
+}
+
+.statistics {
+  display: flex;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.stats>h3 {
+  color: black;
+  margin: 0;
+}
+
+.stats>p {
+  color: rgba(219, 37, 37, 0.8);
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.add {
+  background-color: rgba(219, 37, 37, 0.8);
+  color: white;
+  font-size: 3rem;
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  bottom: 150px;
+  right: 50px;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
