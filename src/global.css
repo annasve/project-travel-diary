@@ -30,6 +30,10 @@ a {
   color: black;
 }
 
+.places-color a {
+  color: white;
+}
+
 /*multipurpose container*/
 /* .container {
   display: flex;
@@ -53,6 +57,10 @@ header {
   color: black
 }
 
+header.places-color {
+  border-bottom: 1px solid white;
+  color: white;
+}
 
 .navbar {
   text-transform: uppercase;
@@ -74,9 +82,17 @@ header {
   border-bottom: 5px solid rgba(219, 37, 37, 0.8);
 }
 
+.places-color .navlink:hover {
+  border-bottom: 5px solid white;
+}
+
 .navlink-selected {
   border-bottom: 5px solid rgba(219, 37, 37, 0.8);
   color: rgba(219, 37, 37, 0.8)
+}
+
+.places-color .navlink-selected {
+  border-bottom: 5px solid white;
 }
 
 

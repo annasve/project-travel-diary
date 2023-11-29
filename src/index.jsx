@@ -24,9 +24,17 @@ const App = () => {
     }
   };
 
+  const headerClass = () => {
+    if (location.pathname === '/places') {
+      return 'places-color';
+    } else {
+      return '';
+    }
+  };
+
   return (
     <div className="container">
-      <header>
+      <header className={headerClass()}>
         <div className="logo__container">
           <img src={logo2Url} alt="logo as image" />
         </div>
