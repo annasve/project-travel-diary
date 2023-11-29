@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 
 export const DashboardPage = () => {
   useEffect(() => {
+    document.body.className = 'gray-background';
     const map = new jsVectorMap({
       selector: '#map',
       map: 'world',

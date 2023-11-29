@@ -1,6 +1,10 @@
+import { useEffect } from 'react';
 import './style.css';
 
 export const HomePage = () => {
+  useEffect(() => {
+    document.body.className = 'image-background';
+  }, []);
   return (
     <div className="home-page">
       <h1>Travel, Write, Repeat.</h1>
