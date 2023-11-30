@@ -58,7 +58,8 @@ const router = createBrowserRouter([
     children: [
       { path: '', element: <HomePage /> },
       { path: '/places', element: <PlacesPage /> },
-      { path: '/dashboard', element: <DashboardPage /> },
+      { path: '/dashboard', element: <DashboardPage modal={false} /> },
+      { path: '/trip', element: <DashboardPage modal={true} /> },
     ],
   },
   ,
