@@ -1,8 +1,69 @@
 .places-background {
   background-color: #BC2F19;
-  /* background-image: none; */
 }
 
 .places-page {
   padding: 2rem;
 }
+
+/*styles for the gallery*/
+
+.gallery__container {
+  display: flex;
+  height: 80vh;
+  width: 90vw;
+}
+
+
+
+.gallery__card {
+  overflow: hidden;
+  height: 100%;
+  width: 300px;
+
+
+  border-left: 0.5px solid #666;
+  border-radius: 10px;
+  box-shadow: -4rem 0 3rem #0003;
+
+  transition: 0.4s ease-out;
+  position: relative;
+  left: 0px;
+}
+
+.gallery__card img {
+  height: 100%;
+  object-fit: contain;
+  object-position: top;
+}
+
+.gallery__card:not(:first-child) {
+  margin-left: -80px;
+}
+
+.gallery__card:hover {
+  transform: translateY(-40px);
+  transition: 0.4s ease-out;
+}
+
+
+.gallery__card:hover~.gallery__card {
+  position: relative;
+  left: 30px;
+  transition: 0.4s ease-out;
+}
+
+
+.country-title {
+  position: absolute;
+  left: calc(50% - 3rem);
+  top: 75%;
+
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  /* font-size: 1rem; */
+  color: white;
+}
+
+/*-------------------*/
