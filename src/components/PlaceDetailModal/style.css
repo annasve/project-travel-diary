@@ -1,7 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
-/* position: absolute;
-  top: 0;
-  left: 0; */
 
 .modal__container {
   width: 100vw;
@@ -9,7 +6,7 @@
   background-color: #CCD1D4;
   color: #12132B;
 
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
