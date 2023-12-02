@@ -3,8 +3,16 @@
 }
 
 /* .places-page {} */
+.container--temp {
+  width: 100vw;
+  height: 100vh;
+}
 
 /*styles for the gallery*/
+
+.swiper {
+  margin-top: 100px;
+}
 
 .gallery__container {
   display: flex;

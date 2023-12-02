@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+/* position: absolute;
+  top: 0;
+  left: 0; */
+
+.modal__container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #CCD1D4;
+  color: #12132B;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.hidden {
+  display: none;
+}
+
+.place__image {
+  width: 400px;
+  height: 100%;
+  display: block;
+}
+
+.description {
+  position: relative;
+  padding: 30px;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  background-color: transparent;
+  padding: 10px;
+}
+
+.description h2 {
+  font-size: 36px;
+  font-family: "Montserrat", serif;
+  font-weight: 500;
+}
+
+.description h3 {
+  font-size: 18px;
+  font-family: "Montserrat", serif;
+  font-weight: 600;
+}
+
+.subheading {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-family: "Montserrat", serif
+}
+
+.description__cultural-highlights .description__info {
+  line-height: 22px;
+}
+
+.description__popular-destinations .description__info {
+  line-height: 24px;
+}
+
+.description__sections {
+  display: flex;
+  justify-content: space-between;
+}
+
+.country-info {
+  flex-basis: max-content;
+}
