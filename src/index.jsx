@@ -13,6 +13,7 @@ import { DashboardPage } from './pages/DashboardPage';
 import './global.css';
 
 import logo2Url from './pages/HomePage/img/logo-36px.png';
+import logoRed from './pages/HomePage/img/logo-red-36px.png';
 
 const App = () => {
   const location = useLocation();
@@ -32,11 +33,19 @@ const App = () => {
     }
   };
 
+  const isRedLogo = () => {
+    return !location.pathname.includes('places');
+  };
+
   return (
     <div className="container">
       <header className={headerClass()}>
         <div className="logo__container">
-          <img src={logo2Url} alt="logo as image" />
+          {isRedLogo() ? (
+            <img src={logoRed} alt="logo as image" />
+          ) : (
+            <img src={logo2Url} alt="logo as image" />
+          )}
         </div>
         <nav className="navbar caudex">
           <Link to="/" className={linkClass('/')}>

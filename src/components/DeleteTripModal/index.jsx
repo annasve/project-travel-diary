@@ -19,7 +19,7 @@ export const DeleteTripModal = ({ country, show, deleteFunction }) => {
   return (
     <Modal showModal={show}>
       <form onSubmit={onDelete}>
-        <div className="input row">
+        <div className="input row delete-row">
           <p>Are you sure you want to delete info about {countryName()}?</p>
         </div>
 
