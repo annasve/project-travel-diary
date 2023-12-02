@@ -1,0 +1,16 @@
+.weather-container {
+  display: flex;
+}
+
+.weather__city,
+.weather__day {
+  font-size: 18px;
+}
+
+.weather__day {
+  text-transform: uppercase;
+}
+
+.weather__temperature {
+  font-size: 20px;
+}

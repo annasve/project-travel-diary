@@ -6,7 +6,8 @@
   background-color: #CCD1D4;
   color: #12132B;
 
-  position: fixed;
+  position: absolute;
+  /*position: fixed*/
   top: 0;
   left: 0;
   z-index: 1;

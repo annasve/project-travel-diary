@@ -2,6 +2,7 @@ import './style.css';
 import SwedenImg from '../../pages/PlacesPage/img/sweden-640.jpg';
 import closeBlackBtn from './close-black-vector.png';
 import { useState } from 'react';
+import { WeatherInfo } from './weatherInfo';
 
 const PlacesArray = [
   {
@@ -44,6 +45,7 @@ export const PlaceDetailModal = ({ isModalClosed, closeModal }) => {
         <button onClick={closeModal} className="closeBtn">
           <img src={closeBlackBtn} alt="close" />
         </button>
+
         <section className="description__country-overview">
           <div className="description__header">
             <h2>{PlacesArray[0].country}</h2>
@@ -85,8 +87,8 @@ export const PlaceDetailModal = ({ isModalClosed, closeModal }) => {
           </p>
         </section>
         <section className="description__weather">
-          <h3>Weather today</h3>
-          /weatherInfo component/
+          <h3>Weather now</h3>
+          <WeatherInfo capitalCity="Stockholm" />
         </section>
       </section>
     </div>
