@@ -1,0 +1,62 @@
+.modal-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.disable-modal {
+  display: none;
+}
+
+.modal {
+  width: 33%;
+  background-color: white;
+  border-radius: 25px;
+  padding: 24px;
+}
+
+.row {
+  padding-bottom: 12px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.buttons>button {
+  width: 100px;
+  height: 36px;
+  border: #BC2F19 solid 2px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.space {
+  width: 20px;
+}
+
+.save-button {
+  background-color: #BC2F19;
+  color: white;
+}
+
+.cancel-button {
+  background-color: white;
+}
+
+.close {
+  position: relative;
+  top: -25px;
+  color: red;
+}

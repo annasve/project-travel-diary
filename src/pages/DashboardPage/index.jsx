@@ -1,38 +1,63 @@
-import './style.css';
+import 'jsvectormap/dist/css/jsvectormap.min.css';
 import jsVectorMap from 'jsvectormap';
 import 'jsvectormap/dist/maps/world.js';
+import './style.css';
 import { useEffect, useState } from 'react';
 import { AddYourTripModal } from '../../components/AddYourTripModal';
+import { DeleteTripModal } from '../../components/DeleteTripModal';
 
 export const DashboardPage = () => {
-  let map;
-  const [showModal, setShowModal] = useState(false);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [countries, setCountries] = useState({});
   const [selectedCountries, setSelectedCountries] = useState([]);
-  const [days, setDays] = useState(0);
-  const [money, setMoney] = useState(0);
+  const [countryToDelete, setCountryToDelete] = useState(null);
 
   const createMap = (selectedCountries) => {
+    document
+      .querySelectorAll('.jvm-tooltip')
+      .forEach((a) => a.parentElement.removeChild(a));
+
+    const newMapDiv = document.createElement('div');
+    newMapDiv.id = 'map';
+    document.getElementById('map').replaceWith(newMapDiv);
+
+    const selectedCodes = selectedCountries.map((country) => country.code);
     const map = new jsVectorMap({
       selector: '#map',
       map: 'world',
-      showTooltip: false,
+      showTooltip: true,
       regionStyle: {
         selected: { fill: 'rgba(219, 37, 37, 0.8)' },
         hover: { fill: 'rgba(219, 37, 37, 0.2 )' },
       },
-      selectedRegions: selectedCountries,
+      selectedRegions: selectedCodes,
       onRegionClick: (event, code) => {
-        if (selectedCountries.includes(code)) {
-          return;
-        }
-
+        event.preventDefault();
         const clickedCountry = Object.entries(map.regions)
           .filter((c) => c[0] === code)
           .map((c) => Object.assign({}, { [code]: c[1] }));
 
-        setCountries(clickedCountry[0]);
-        setShowModal(true);
+        if (selectedCodes.includes(code)) {
+          setCountryToDelete({
+            code: code,
+            name: clickedCountry[0][code].config.name,
+          });
+          setShowDeleteModal(true);
+        } else {
+          setCountries(clickedCountry[0]);
+          setShowAddModal(true);
+        }
+      },
+      onRegionTooltipShow: (event, tooltip, code) => {
+        let text = `<p class="tooltip-country">${tooltip.text()}</p>`;
+
+        if (selectedCodes.includes(code)) {
+          const country = selectedCountries.filter((c) => c.code === code)[0];
+          text += `<p>You spent here:</p><p>${country.days} days and $${country.money}</p>`;
+        }
+
+        tooltip.text(text, true);
       },
     });
     setCountries(map.regions);
@@ -40,30 +65,56 @@ export const DashboardPage = () => {
   };
 
   const onCountrySelect = (country, d, m) => {
-    setShowModal(false);
-    if (!country || selectedCountries.includes(country)) {
-      document.getElementById('map').replaceChildren();
-      map = createMap(selectedCountries);
+    setShowAddModal(false);
+    if (
+      !country ||
+      selectedCountries.map((country) => country.code).includes(country)
+    ) {
       return;
     }
+
     const newSelectedCountries = [...selectedCountries];
-    newSelectedCountries.push(country);
+    newSelectedCountries.push({ code: country, days: d, money: m });
 
     setSelectedCountries(newSelectedCountries);
-    setDays(days + d);
-    setMoney(money + m);
+    createMap(newSelectedCountries);
+  };
 
-    document.getElementById('map').replaceChildren();
-    map = createMap(newSelectedCountries);
+  const totalDays = () => {
+    let sum = 0;
+    selectedCountries.forEach((country) => {
+      sum += country.days;
+    });
+    return sum;
+  };
+
+  const totalMoney = () => {
+    let sum = 0;
+    selectedCountries.forEach((country) => {
+      sum += country.money;
+    });
+    return sum;
   };
 
   const onAddClick = () => {
-    setShowModal(true);
+    setShowAddModal(true);
+  };
+
+  const onDeleteClick = (country, toDelete) => {
+    setShowDeleteModal(false);
+
+    if (toDelete === true) {
+      const newSelectedCountries = selectedCountries.filter(
+        (c) => c.code !== country,
+      );
+      setSelectedCountries(newSelectedCountries);
+      createMap(newSelectedCountries);
+    }
   };
 
   useEffect(() => {
     document.body.className = 'gray-background';
-    map = createMap(selectedCountries);
+    createMap(selectedCountries);
   }, []);
 
   return (
@@ -76,11 +127,11 @@ export const DashboardPage = () => {
         </div>
         <div className="stats">
           <h3>Days spent:</h3>
-          <p>{days}</p>
+          <p>{totalDays()}</p>
         </div>
         <div className="stats">
           <h3>Money spent:</h3>
-          <p>${money}</p>
+          <p>${totalMoney()}</p>
         </div>
       </div>
       <button onClick={onAddClick} className="add">
@@ -89,7 +140,12 @@ export const DashboardPage = () => {
       <AddYourTripModal
         countries={countries}
         onCountrySelect={onCountrySelect}
-        show={showModal}
+        show={showAddModal}
+      />
+      <DeleteTripModal
+        country={countryToDelete}
+        deleteFunction={onDeleteClick}
+        show={showDeleteModal}
       />
     </div>
   );
