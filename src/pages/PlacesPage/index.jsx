@@ -1,6 +1,6 @@
 import './style.css';
 import { useEffect, useState } from 'react';
-import SwedenImg from './img/sweden-640.jpg';
+import swedenImg from './img/sweden-640.jpg';
 
 import { PlaceDetailModal } from '../../components/PlaceDetailModal';
 
@@ -17,8 +17,25 @@ import 'swiper/css/pagination';
 //----------
 
 export const PlacesPage = () => {
+  const [countries, setCountries] = useState([]);
+  console.log('countries', countries);
   useEffect(() => {
     document.body.className = 'places-background';
+
+    //country data from our api
+    const fetchCountriesInfo = async () => {
+      const response = await fetch('http://localhost:4000/api/countriesinfo');
+      const data = await response.json();
+      setCountries(data.result);
+
+      if (!response.ok) {
+        console.log(
+          'Sorry, the server cannot fetch information about the countries. Countries are unable to travel to your destination :/',
+        );
+      }
+    };
+
+    fetchCountriesInfo();
   }, []);
 
   const [isModalClosed, setIsModalClosed] = useState(true);
@@ -42,39 +59,20 @@ export const PlacesPage = () => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide onClick={openModal}>
-          <div className="gallery__card">
-            <img src={SwedenImg} alt="A street in Stockholm" />
-            <span className="country-title">Sweden</span>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="gallery__card">
-            <img src={SwedenImg} alt="A street in Stockholm" />
-            <span className="country-title">Czech Republic</span>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="gallery__card">
-            <img src={SwedenImg} alt="A street in Stockholm" />
-            <span className="country-title">Denmark</span>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          {' '}
-          <div className="gallery__card">
-            <img src={SwedenImg} alt="A street in Stockholm" />
-            <span className="country-title">Denmark</span>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        <Countries countries={countries} openModal={openModal} />
       </Swiper>
 
       <PlaceDetailModal isModalClosed={isModalClosed} closeModal={closeModal} />
     </div>
   );
 };
+
+const Countries = ({ countries, openModal }) =>
+  countries.map((country) => (
+    <SwiperSlide key={country.id} onClick={openModal}>
+      <div className="gallery__card">
+        <img src={country.image} alt="A street in Stockholm" />
+        <span className="country-title">{country.country}</span>
+      </div>
+    </SwiperSlide>
+  ));
