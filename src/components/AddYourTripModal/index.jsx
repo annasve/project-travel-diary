@@ -80,6 +80,7 @@ export const AddYourTripModal = ({ countries, onCountrySelect, show }) => {
             value={days}
             onChange={onDaysChange}
             type="number"
+            required
           ></input>
         </div>
 
@@ -91,6 +92,7 @@ export const AddYourTripModal = ({ countries, onCountrySelect, show }) => {
             value={money}
             onChange={onMoneyChange}
             type="number"
+            required
           ></input>
         </div>
         <div className="buttons row">

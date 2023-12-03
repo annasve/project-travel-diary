@@ -102,6 +102,7 @@ export const DashboardPage = () => {
       selectedCountries.map((country) => country.code).includes(country)
     ) {
       navigate('/dashboard');
+      createMap(selectedCountries);
       return;
     }
 
