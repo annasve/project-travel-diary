@@ -1,38 +1,22 @@
 import './style.css';
 import SwedenImg from '../../pages/PlacesPage/img/sweden-640.jpg';
 import closeBlackBtn from './close-black-vector.png';
-import { useState } from 'react';
 import { WeatherInfo } from './weatherInfo';
 
-const PlacesArray = [
-  {
-    id: 0,
-    image: 'imgUrl', // You can replace "imgUrl" with the actual URL of the image
-    country: 'Sweden',
-    countryOverview: {
-      capital: 'Stockholm',
-      population: '10.5 million',
-      officialLanguage: 'Swedish',
-      currency: 'Swedish Krona (SEK)',
-      timeZone: 'Central European Time (CET)',
-    },
-    culturalHighlights:
-      "Sweden is known for its rich cultural heritage, including traditions like Midsummer's Eve (Midsommar) and the concept of fika, a coffee break often accompanied by pastries.",
-    popularDestinations: [
-      'Icehotel in Jukkasjärvi',
-      'Medieval town of Visby',
-      'Abisko National Park for northern lights viewing',
-    ],
-  },
-];
-const countryOverview = PlacesArray[0].countryOverview;
+export const PlaceDetailModal = ({
+  isModalClosed,
+  closeModal,
+  currentCountry,
+}) => {
+  console.log('one country from the modal', currentCountry);
+  const { countryOverview } = currentCountry;
 
-export const PlaceDetailModal = ({ isModalClosed, closeModal }) => {
   return (
     <div
       className={isModalClosed ? 'hidden modal__container' : 'modal__container'}
     >
-      <img className="place__image" src={SwedenImg} alt="" />
+      <img className="place__image" src={currentCountry.image} alt="" />
+
       <section className="description">
         <button onClick={closeModal} className="closeBtn">
           <img src={closeBlackBtn} alt="close" />
@@ -40,7 +24,7 @@ export const PlaceDetailModal = ({ isModalClosed, closeModal }) => {
 
         <section className="description__country-overview">
           <div className="description__header">
-            <h2>{PlacesArray[0].country}</h2>
+            <h2>{currentCountry.country}</h2>
             <h3>Country Overview</h3>
           </div>
 
@@ -69,15 +53,16 @@ export const PlaceDetailModal = ({ isModalClosed, closeModal }) => {
         <section className="description__cultural-highlights">
           <h3>Cultural Highlights</h3>
           <p className="description__info">
-            {PlacesArray[0].culturalHighlights}
+            {currentCountry.culturalHighlights}
           </p>
         </section>
         <section className="description__popular-destinations">
           <h3>Popular Destinations</h3>
           <p className="description__info">
-            {PlacesArray[0].popularDestinations}
+            {currentCountry.popularDestinations}
           </p>
         </section>
+
         <section className="description__weather">
           <h3>Weather now</h3>
           <WeatherInfo capitalCity={countryOverview.capital} />

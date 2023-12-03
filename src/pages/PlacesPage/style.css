@@ -12,27 +12,21 @@
 /*styles for the gallery*/
 
 .swiper {
-  margin-top: 100px;
-}
-
-.gallery__container {
-  display: flex;
-  height: 80vh;
-  width: 90vw;
-  margin: 3rem auto;
+  padding-top: 100px !important;
 }
 
 
 
 .gallery__card {
   overflow: hidden;
-  height: 600px;
+  height: 80vh;
+
   width: 400px;
+  /*todo fix*/
 
 
   border-left: 0.5px solid #666;
   border-radius: 10px;
-  box-shadow: -4rem 0 3rem #0003;
 
   transition: 0.4s ease-out;
   position: relative;
@@ -41,7 +35,8 @@
 
 .gallery__card img {
   height: 100%;
-  object-fit: contain;
+  width: 100%;
+  object-fit: cover;
   object-position: top;
 }
 
