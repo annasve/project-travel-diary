@@ -4,6 +4,8 @@ import SwedenImg from './img/sweden-640.jpg';
 
 import { PlaceDetailModal } from '../../components/PlaceDetailModal';
 
+//array country+image for gallery__card
+
 //----------
 //swiper
 // Import Swiper React components
@@ -19,38 +21,7 @@ export const PlacesPage = () => {
     document.body.className = 'places-background';
   }, []);
 
-  // return (
-  //   <div className="places-page">
-  //     <h2>Places page</h2>
-  //     <div className="gallery__container">
-  //       <div className="gallery__card">
-  //         <img src={SwedenImg} alt="A street in Stockholm" />
-  //         <span className="country-title">Sweden</span>
-  //       </div>
-
-  //       <div className="gallery__card">
-  //         <img src={SwedenImg} alt="A street in Stockholm" />
-  //         <span className="country-title">Czech Republic</span>
-  //       </div>
-
-  //       <div className="gallery__card">
-  //         <img src={SwedenImg} alt="A street in Stockholm" />
-  //         <span className="country-title">Denmark</span>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
-  //----------------------------------------------
-  //   <div
-  //   className={isModalClosed ? 'hidden modal__container' : 'modal__container'}
-  // >
-
-  // const handleClickTest = () => {
-  //   isModalClosed(false);
-  // };
-
   const [isModalClosed, setIsModalClosed] = useState(true);
-  console.log(isModalClosed);
 
   const openModal = () => {
     setIsModalClosed(false);
@@ -60,7 +31,6 @@ export const PlacesPage = () => {
     setIsModalClosed(true);
   };
 
-  // <PlaceDetailModal isModalClosed={isModalClosed} closeModal={closeModal} />
   return (
     <div className="container--temp">
       <Swiper

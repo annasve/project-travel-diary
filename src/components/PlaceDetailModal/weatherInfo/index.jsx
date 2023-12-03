@@ -4,13 +4,14 @@ import React, { useState, useEffect } from 'react';
 export const WeatherInfo = ({ capitalCity }) => {
   const [weatherData, setWeatherData] = useState(null);
   const [weatherConditionIcon, setWeatherConditionIcon] = useState('');
-  const apiKey = 'ad6d5736e6753aef2b5eaf2d977b0d93';
-  // const city = { capitalCity };
-  const city = 'Stockholm';
-  console.log(weatherData); //for testing
-  console.log(weatherConditionIcon); //for testing
 
-  //---------date / dayNumber
+  const apiKey = 'ad6d5736e6753aef2b5eaf2d977b0d93';
+
+  const city = capitalCity;
+
+  console.log(weatherData); //for testing
+
+  //--------- function for getting day of the week from current date
 
   const currentDay = () => {
     const weekDays = [
@@ -24,11 +25,8 @@ export const WeatherInfo = ({ capitalCity }) => {
     ];
 
     const currentDate = new Date();
-    console.log(currentDate);
-    const dayNumber = currentDate.getDay(); // number like 5 etc.
-    console.log(dayNumber);
+    const dayNumber = currentDate.getDay();
     const todayFinal = weekDays[dayNumber];
-    console.log(todayFinal);
 
     return todayFinal;
   };

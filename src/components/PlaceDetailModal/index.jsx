@@ -26,16 +26,8 @@ const PlacesArray = [
   },
 ];
 const countryOverview = PlacesArray[0].countryOverview;
-console.log(countryOverview.capital);
 
 export const PlaceDetailModal = ({ isModalClosed, closeModal }) => {
-  // const [isModalClosed, setIsModalClosed] = useState(false);
-  // console.log(isModalClosed);
-
-  // const handleClick = () => {
-  //   setIsModalClosed(true);
-  // };
-
   return (
     <div
       className={isModalClosed ? 'hidden modal__container' : 'modal__container'}
@@ -88,7 +80,7 @@ export const PlaceDetailModal = ({ isModalClosed, closeModal }) => {
         </section>
         <section className="description__weather">
           <h3>Weather now</h3>
-          <WeatherInfo capitalCity="Stockholm" />
+          <WeatherInfo capitalCity={countryOverview.capital} />
         </section>
       </section>
     </div>
