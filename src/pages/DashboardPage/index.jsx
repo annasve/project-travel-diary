@@ -7,11 +7,34 @@ import { AddYourTripModal } from '../../components/AddYourTripModal';
 import { DeleteTripModal } from '../../components/DeleteTripModal';
 import { useLocation, useNavigate } from 'react-router';
 
+//https://stackoverflow.com/questions/71876755/save-state-to-localstorage
+export default function usePersistantState(key, initialValue) {
+  const [state, setInternalState] = useState(initialValue);
+
+  useEffect(() => {
+    const value = localStorage.getItem(key);
+
+    if (!value) return;
+
+    setInternalState(JSON.parse(value));
+  }, [key]);
+
+  const setState = (value) => {
+    localStorage.setItem(key, JSON.stringify(value));
+    setInternalState(value);
+  };
+
+  return [state, setState];
+}
+
 export const DashboardPage = () => {
   const [showAddModal, setShowAddModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [countries, setCountries] = useState({});
-  const [selectedCountries, setSelectedCountries] = useState([]);
+  const [selectedCountries, setSelectedCountries] = usePersistantState(
+    'selectedCountries',
+    [],
+  );
   const [countryToDelete, setCountryToDelete] = useState(null);
   const navigate = useNavigate();
 
@@ -125,7 +148,7 @@ export const DashboardPage = () => {
   useEffect(() => {
     document.body.className = 'gray-background';
     createMap(selectedCountries);
-  }, []);
+  }, [selectedCountries]);
 
   return (
     <div className="dashboard">
