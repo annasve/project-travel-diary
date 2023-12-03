@@ -57,7 +57,11 @@ const App = () => {
           <Link to="/dashboard" className={linkClass('/dashboard')}>
             dashboard
           </Link>
-          <Link to="/trip" className={linkClass('/trip')}>
+          <Link
+            id="add-trip"
+            to="/dashboard#add-trip"
+            className={linkClass('/trip')}
+          >
             add your trip
           </Link>
         </nav>
@@ -75,8 +79,7 @@ const router = createBrowserRouter([
     children: [
       { path: '', element: <HomePage /> },
       { path: '/places', element: <PlacesPage /> },
-      { path: '/dashboard', element: <DashboardPage modal={false} /> },
-      { path: '/trip', element: <DashboardPage modal={true} /> },
+      { path: '/dashboard', element: <DashboardPage /> },
     ],
   },
   ,

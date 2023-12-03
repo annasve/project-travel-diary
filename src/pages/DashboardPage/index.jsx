@@ -5,6 +5,7 @@ import './style.css';
 import { useEffect, useState } from 'react';
 import { AddYourTripModal } from '../../components/AddYourTripModal';
 import { DeleteTripModal } from '../../components/DeleteTripModal';
+import { useLocation, useNavigate } from 'react-router';
 
 export const DashboardPage = () => {
   const [showAddModal, setShowAddModal] = useState(false);
@@ -12,6 +13,13 @@ export const DashboardPage = () => {
   const [countries, setCountries] = useState({});
   const [selectedCountries, setSelectedCountries] = useState([]);
   const [countryToDelete, setCountryToDelete] = useState(null);
+  const navigate = useNavigate();
+
+  let showModal = false;
+  const location = useLocation();
+  if (location.hash === '#add-trip') {
+    showModal = true;
+  }
 
   const createMap = (selectedCountries) => {
     document
@@ -70,6 +78,7 @@ export const DashboardPage = () => {
       !country ||
       selectedCountries.map((country) => country.code).includes(country)
     ) {
+      navigate('/dashboard');
       return;
     }
 
@@ -78,6 +87,7 @@ export const DashboardPage = () => {
 
     setSelectedCountries(newSelectedCountries);
     createMap(newSelectedCountries);
+    navigate('/dashboard');
   };
 
   const totalDays = () => {
@@ -140,7 +150,7 @@ export const DashboardPage = () => {
       <AddYourTripModal
         countries={countries}
         onCountrySelect={onCountrySelect}
-        show={showAddModal}
+        show={showAddModal || showModal}
       />
       <DeleteTripModal
         country={countryToDelete}
