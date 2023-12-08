@@ -168,9 +168,9 @@ export const DashboardPage = () => {
           <p>${totalMoney()}</p>
         </div>
       </div>
-      <button onClick={onAddClick} className="add">
+      <div onClick={onAddClick} className="add">
         +
-      </button>
+      </div>
       <AddYourTripModal
         countries={countries}
         onCountrySelect={onCountrySelect}
