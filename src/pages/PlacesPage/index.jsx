@@ -15,6 +15,9 @@ import { Scrollbar } from 'swiper/modules';
 
 //----------
 
+const backendApi = import.meta.env.VITE_BACKEND_API_URL;
+//locally set in .env to http://localhost:3000 and in project's Vercel  settings it's set to the address of the API repo running on Vercel
+
 export const PlacesPage = () => {
   const [countries, setCountries] = useState([]);
   const [isModalClosed, setIsModalClosed] = useState(true);
@@ -31,11 +34,12 @@ export const PlacesPage = () => {
 
     //country data from our api
     const fetchCountriesInfo = async () => {
-      const response = await fetch('http://localhost:4000/api/countriesinfo');
+      const response = await fetch(`${backendApi}/countriesinfo`);
+
       const data = await response.json();
-      setCountries(data.result);
+      setCountries(data);
       setIsLoading(false);
-      setCountry(data.result[0]);
+      setCountry(data[0]);
       if (!response.ok) {
         console.log(
           'Sorry, the server cannot fetch information about the countries. Countries are unable to travel to your destination :/',
