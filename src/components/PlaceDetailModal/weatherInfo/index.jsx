@@ -1,11 +1,12 @@
 import './style.css';
 import React, { useState, useEffect } from 'react';
 
+//VITE_WEATHER_API_KEY
+const weatherApiKey = import.meta.env.VITE_WEATHER_API_KEY;
+
 export const WeatherInfo = ({ capitalCity }) => {
   const [weatherData, setWeatherData] = useState(null);
   const [weatherConditionIcon, setWeatherConditionIcon] = useState('');
-
-  const apiKey = 'ad6d5736e6753aef2b5eaf2d977b0d93';
 
   const city = capitalCity;
 
@@ -36,7 +37,7 @@ export const WeatherInfo = ({ capitalCity }) => {
     const fetchWeather = async () => {
       try {
         const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`,
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApiKey}&units=metric`,
         );
 
         if (!response.ok) {
@@ -55,7 +56,7 @@ export const WeatherInfo = ({ capitalCity }) => {
     };
 
     fetchWeather();
-  }, [apiKey, city]);
+  }, [weatherApiKey, city]);
 
   return (
     <div>

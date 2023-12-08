@@ -16,7 +16,7 @@ import { Scrollbar } from 'swiper/modules';
 //----------
 
 const backendApi = import.meta.env.VITE_BACKEND_API_URL;
-//locally set in .env to http://localhost:3000 and in project's Vercel it's set to the address of the API repo running on Vercel
+//locally set in .env to http://localhost:3000 and in project's Vercel  settings it's set to the address of the API repo running on Vercel
 
 export const PlacesPage = () => {
   const [countries, setCountries] = useState([]);
