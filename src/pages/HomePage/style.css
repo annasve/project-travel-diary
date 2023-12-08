@@ -1,4 +1,5 @@
 .image-background {
+  background-color: #e4eaea;
   background-image: url(./img/background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -24,4 +25,20 @@
 
 .home-page>a {
   font-size: 1.5rem;
+}
+
+@media (max-width: 700px) {
+  .image-background {
+    background-size: auto;
+  }
+
+  .home-page>h1 {
+
+    margin-bottom: 5rem;
+  }
+
+  .home-page>p {
+
+    margin-bottom: 2rem;
+  }
 }

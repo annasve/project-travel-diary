@@ -1,0 +1,177 @@
+.places-color a {
+  color: white;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid rgba(219, 37, 37, 0.8);
+  margin-left: 2rem;
+  margin-right: 2rem;
+  color: black
+}
+
+header.places-color {
+  border-bottom: 1px solid white;
+  color: white;
+}
+
+nav {
+  text-transform: uppercase;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 0;
+}
+
+.navlink {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  font-size: 1rem;
+  height: 1.6rem;
+  box-sizing: border-box;
+  margin-bottom: 0;
+  border-bottom: 0px solid rgba(219, 37, 37, 0.8);
+  transition:
+    border 0.2s ease-in,
+    color 0.2s ease-in;
+}
+
+.navlink:hover {
+  border-bottom: 5px solid rgba(219, 37, 37, 0.8);
+}
+
+.places-color .navlink:hover {
+  border-bottom: 5px solid white;
+}
+
+.navlink-selected {
+  border-bottom: 5px solid rgba(219, 37, 37, 0.8);
+  color: rgba(219, 37, 37, 0.8)
+}
+
+.places-color .navlink-selected {
+  border-bottom: 5px solid white;
+}
+
+
+#menu {
+  z-index: 3;
+}
+
+#menu-bar {
+  width: 45px;
+  height: 40px;
+  margin: 30px 0 20px 20px;
+  cursor: pointer;
+}
+
+.bar {
+  height: 5px;
+  width: 100%;
+  background-color: rgb(219, 37, 37);
+  display: block;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+.bar-places {
+  background-color: white;
+}
+
+#bar1 {
+  transform: translateY(-4px);
+}
+
+#bar3 {
+  transform: translateY(4px);
+}
+
+.nav {
+  transition: 0.3s ease;
+  display: none;
+}
+
+.nav ul {
+  padding: 0 22px;
+}
+
+.nav li {
+  list-style: none;
+  padding: 12px 0;
+}
+
+.nav li a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.nav-places li a {
+  color: rgb(219, 37, 37);
+}
+
+.nav li a:hover {
+  font-weight: bold;
+}
+
+.menu-bg,
+#menu {
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.menu-bg {
+  z-index: 2;
+  width: 0;
+  height: 0;
+  margin: 30px 0 20px 20px;
+  background: radial-gradient(circle, rgb(219, 37, 37), rgb(219, 37, 37));
+  border-radius: 50%;
+  transition: 0.3s ease;
+}
+
+.manuBg-places {
+  background: radial-gradient(circle, #e4eaea, #e4eaea);
+}
+
+.change {
+  display: block;
+}
+
+.change .bar {
+  background-color: white;
+}
+
+.change .bar-places {
+  background-color: rgb(219, 37, 37);
+}
+
+.change #bar1 {
+  transform: translateY(4px) rotateZ(-45deg);
+}
+
+.change #bar2 {
+  opacity: 0;
+}
+
+.change #bar3 {
+  transform: translateY(-6px) rotateZ(45deg);
+}
+
+.change-bg {
+  width: 520px;
+  height: 460px;
+  transform: translate(-50%, -30%);
+}
+
+.mobile_logo {
+  position: absolute;
+  right: 0;
+  top: 20px;
+}

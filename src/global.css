@@ -33,10 +33,6 @@ a {
   color: black;
 }
 
-.places-color a {
-  color: white;
-}
-
 /*multipurpose container*/
 /* .container {
   display: flex;
@@ -50,77 +46,7 @@ a {
 
 /*-----menu-----*/
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  border-bottom: 1px solid rgba(219, 37, 37, 0.8);
-  margin-left: 2rem;
-  margin-right: 2rem;
-  color: black
-}
 
-header.places-color {
-  border-bottom: 1px solid white;
-  color: white;
-}
-
-.navbar {
-  text-transform: uppercase;
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 0;
-}
-
-.navlink {
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
-  font-size: 1rem;
-  height: 1.6rem;
-  box-sizing: border-box;
-  margin-bottom: 0;
-}
-
-.navlink:hover {
-  border-bottom: 5px solid rgba(219, 37, 37, 0.8);
-}
-
-.places-color .navlink:hover {
-  border-bottom: 5px solid white;
-}
-
-.navlink-selected {
-  border-bottom: 5px solid rgba(219, 37, 37, 0.8);
-  color: rgba(219, 37, 37, 0.8)
-}
-
-.places-color .navlink-selected {
-  border-bottom: 5px solid white;
-}
-
-
-/*---*/
-/*-----media for header-----*/
-@media (max-width: 450px) {
-  header {
-    display: block;
-    text-align: center;
-    line-height: 1.5;
-  }
-
-  .logo__container {
-    display: none;
-  }
-
-  .navbar {
-    flex-direction: column;
-    ;
-  }
-
-  .navlink {
-    font-size: 0.5rem;
-  }
-}
 
 /*-------------*/
 

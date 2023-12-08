@@ -1,5 +1,4 @@
 import './style.css';
-import SwedenImg from '../../pages/PlacesPage/img/sweden-640.jpg';
 import closeBlackBtn from './close-black-vector.png';
 import { WeatherInfo } from './weatherInfo';
 
@@ -10,6 +9,9 @@ export const PlaceDetailModal = ({
 }) => {
   console.log('one country from the modal', currentCountry);
   const { countryOverview } = currentCountry;
+  const destinationList = currentCountry.popularDestinations.map((dest) => (
+    <li>{dest}</li>
+  ));
 
   return (
     <div
@@ -58,9 +60,7 @@ export const PlaceDetailModal = ({
         </section>
         <section className="description__popular-destinations">
           <h3>Popular Destinations</h3>
-          <p className="description__info">
-            {currentCountry.popularDestinations}
-          </p>
+          <ul className="description__info">{destinationList}</ul>
         </section>
 
         <section className="description__weather">

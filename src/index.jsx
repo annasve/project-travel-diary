@@ -1,72 +1,25 @@
 import { createRoot } from 'react-dom/client';
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Link,
-  Outlet,
-  useLocation,
-} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { PlacesPage } from './pages/PlacesPage';
 import { DashboardPage } from './pages/DashboardPage';
 
 import './global.css';
-
-import logo2Url from './pages/HomePage/img/logo-36px.png';
-import logoRed from './pages/HomePage/img/logo-red-36px.png';
+import { DesktopHeader, MobileHeader } from './components/Header';
+import { useEffect, useState } from 'react';
 
 const App = () => {
-  const location = useLocation();
-  const linkClass = (link) => {
-    if (link === location.pathname) {
-      return 'navlink navlink-selected';
-    } else {
-      return 'navlink';
-    }
-  };
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 700);
 
-  const headerClass = () => {
-    if (location.pathname === '/places') {
-      return 'places-color';
-    } else {
-      return '';
-    }
-  };
-
-  const isRedLogo = () => {
-    return !location.pathname.includes('places');
-  };
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      setIsMobile(window.innerWidth <= 700);
+    });
+  }, []);
 
   return (
     <div className="container">
-      <header className={headerClass()}>
-        <div className="logo__container">
-          {isRedLogo() ? (
-            <img src={logoRed} alt="logo as image" />
-          ) : (
-            <img src={logo2Url} alt="logo as image" />
-          )}
-        </div>
-        <nav className="navbar caudex">
-          <Link to="/" className={linkClass('/')}>
-            home
-          </Link>
-          <Link to="/places" className={linkClass('/places')}>
-            places
-          </Link>
-          <Link to="/dashboard" className={linkClass('/dashboard')}>
-            dashboard
-          </Link>
-          <Link
-            id="add-trip"
-            to="/dashboard#add-trip"
-            className={linkClass('/trip')}
-          >
-            add your trip
-          </Link>
-        </nav>
-      </header>
-
+      {isMobile ? <MobileHeader /> : <DesktopHeader />}
       <Outlet />
     </div>
   );

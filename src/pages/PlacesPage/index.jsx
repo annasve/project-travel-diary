@@ -20,10 +20,14 @@ export const PlacesPage = () => {
   const [isModalClosed, setIsModalClosed] = useState(true);
   const [country, setCountry] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 700);
 
   console.log('countries from PlacesPage', countries);
   useEffect(() => {
     document.body.className = 'places-background';
+    window.addEventListener('resize', () => {
+      setIsMobile(window.innerWidth <= 700);
+    });
 
     //country data from our api
     const fetchCountriesInfo = async () => {
@@ -53,14 +57,12 @@ export const PlacesPage = () => {
     setIsModalClosed(true);
   };
 
-  console.log(country, isLoading);
-
   return isLoading ? null : (
     <div className="container--temp">
       <Swiper
-        slidesPerView={3}
+        slidesPerView={isMobile ? 2 : 5}
         //media  - fce isMobiledevice vrací t/f 1 nebo 3 slidy
-        // spaceBetween={150}
+        spaceBetween={isMobile ? 0 : 80}
         // pagination={{
         //   clickable: true,
         // }}
@@ -73,7 +75,7 @@ export const PlacesPage = () => {
       >
         {countries.map((country) => (
           <SwiperSlide key={country.id} onClick={openModal(country.id)}>
-            <div className="gallery__card">
+            <div className={'gallery__card'}>
               <img src={country.image} alt="A street in Stockholm" />
               <span className="country-title">{country.country}</span>
             </div>

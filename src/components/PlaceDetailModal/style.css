@@ -55,7 +55,7 @@
 
 .subheading {
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 12px;
   font-family: "Montserrat", serif
 }
 
@@ -74,4 +74,22 @@
 
 .country-info {
   flex-basis: max-content;
+}
+
+@media (max-width: 700px) {
+  .modal__container {
+    flex-direction: column;
+    z-index: 4;
+  }
+
+  .description__country-overview>.description__sections {
+    flex-direction: column;
+  }
+
+  .description__country-overview>.description__sections>.country-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

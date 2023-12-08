@@ -55,7 +55,7 @@
   {
     "id": 3,
     "image": "./denmark.jpg",
-    "country": "Copenhagen",
+    "country": "Denmark",
     "countryOverview": {
       "capital": "Copenhagen",
       "population": "Approximately 5.8 million",
@@ -73,7 +73,7 @@
   {
     "id": 4,
     "image": "./ukraine.jpg",
-    "country": "Kyiv",
+    "country": "Ukraine",
     "countryOverview": {
       "capital": "Kyiv",
       "population": "44 million",
@@ -91,7 +91,7 @@
   {
     "id": 5,
     "image": "./czech-republic.jpg",
-    "country": "Prague",
+    "country": "Czech Republic",
     "countryOverview": {
       "capital": "Prague",
       "population": "Approximately 10.7 million",
@@ -108,7 +108,7 @@
   {
     "id": 6,
     "image": "./canada.jpg",
-    "country": "Ottawa",
+    "country": "Canada",
     "countryOverview": {
       "capital": "Ottawa",
       "population": "38 million",
@@ -126,7 +126,7 @@
   {
     "id": 7,
     "image": "./australia.jpg",
-    "country": "Canberra",
+    "country": "Australia",
     "countryOverview": {
       "capital": "Canberra",
       "population": "Approximately 25 million",
@@ -144,7 +144,7 @@
   {
     "id": 8,
     "image": "./mexico.jpg",
-    "country": "Mexico City",
+    "country": "Mexico",
     "countryOverview": {
       "capital": "Mexico City",
       "population": "Approximately 129 million",
@@ -162,7 +162,7 @@
   {
     "id": 9,
     "image": "./indonesia.jpg",
-    "country": "Jakarta",
+    "country": "Indonesia",
     "countryOverview": {
       "capital": "Jakarta",
       "population": "Approximately 273 million",
