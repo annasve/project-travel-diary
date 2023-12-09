@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './style.css';
 
 export const HomePage = () => {
@@ -12,7 +13,7 @@ export const HomePage = () => {
         Don't let the world's chaos deter you, <br />
         let the wanderlust within you guide you.
       </p>
-      <a href="/dashboard">EXPLORE →</a>
+      <Link to="/dashboard">EXPLORE →</Link>
     </div>
   );
 };

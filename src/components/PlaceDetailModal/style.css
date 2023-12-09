@@ -92,4 +92,14 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  .place__image {
+    width: 100%;
+    position: relative;
+    top: -100px;
+  }
+
+  .description {
+    top: -100px
+  }
 }
