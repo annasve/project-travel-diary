@@ -13,7 +13,13 @@ export const HomePage = () => {
         Don't let the world's chaos deter you, <br />
         let the wanderlust within you guide you.
       </p>
-      <Link to="/dashboard">EXPLORE →</Link>
+      {/* <Link to="/dashboard">EXPLORE →</Link> */}
+      <Link to="/dashboard">
+        <button class="explore">
+          EXPLORE<span class="icon-right"></span>
+          <span class="icon-right after"></span>
+        </button>
+      </Link>
     </div>
   );
 };
