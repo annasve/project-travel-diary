@@ -13,7 +13,6 @@
   z-index: 1;
 
   display: flex;
-  justify-content: space-between;
   overflow: scroll;
 }
 
@@ -22,13 +21,11 @@
 }
 
 .place__image {
-  width: 400px;
-  height: 100%;
+  height: 100vh;
   display: block;
 }
 
 .description {
-  position: relative;
   padding: 30px;
 }
 
@@ -100,6 +97,7 @@
   }
 
   .description {
+    position: relative;
     top: -100px
   }
 }
