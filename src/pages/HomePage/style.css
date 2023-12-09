@@ -32,6 +32,10 @@
     background-size: auto;
   }
 
+  .home-page {
+    padding: 8px;
+  }
+
   .home-page>h1 {
     margin-bottom: 5rem;
   }

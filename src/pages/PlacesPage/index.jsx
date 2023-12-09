@@ -11,7 +11,7 @@ import 'swiper/css';
 
 // import { Pagination } from 'swiper/modules';
 // import 'swiper/css/pagination';
-import { Scrollbar } from 'swiper/modules';
+import { Mousewheel, Scrollbar } from 'swiper/modules';
 
 //----------
 
@@ -67,6 +67,9 @@ export const PlacesPage = () => {
         slidesPerView={isMobile ? 2 : 5}
         //media  - fce isMobiledevice vrací t/f 1 nebo 3 slidy
         spaceBetween={isMobile ? 0 : 80}
+        mousewheel={true}
+        centeredSlides={true}
+        loop={true}
         // pagination={{
         //   clickable: true,
         // }}
@@ -74,7 +77,7 @@ export const PlacesPage = () => {
         scrollbar={{
           hide: true,
         }}
-        modules={[Scrollbar]}
+        modules={[Scrollbar, Mousewheel]}
         className="mySwiper"
       >
         {countries.map((country) => (

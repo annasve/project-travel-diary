@@ -29,11 +29,13 @@ export const DesktopHeader = () => {
   return (
     <header className={headerClass()}>
       <div className="logo__container">
-        {isRedLogo() ? (
-          <img src={logoRed} alt="logo as image" />
-        ) : (
-          <img src={logo2Url} alt="logo as image" />
-        )}
+        <Link to="/">
+          {isRedLogo() ? (
+            <img src={logoRed} alt="logo as image" />
+          ) : (
+            <img src={logo2Url} alt="logo as image" />
+          )}
+        </Link>
       </div>
       <nav className="navbar caudex">
         <Link to="/" className={linkClass('/')}>
@@ -150,11 +152,13 @@ export const MobileHeader = () => {
       <div className={'menu-bg ' + menuBgClass()} id="menu-bg"></div>
 
       <div className="logo__container mobile_logo">
-        {isRedLogo() ? (
-          <img src={logoRed} alt="logo as image" />
-        ) : (
-          <img src={logo2Url} alt="logo as image" />
-        )}
+        <Link to="/">
+          {isRedLogo() ? (
+            <img src={logoRed} alt="logo as image" />
+          ) : (
+            <img src={logo2Url} alt="logo as image" />
+          )}
+        </Link>
       </div>
     </>
   );
