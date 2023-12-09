@@ -83,7 +83,7 @@ export const PlacesPage = () => {
         {countries.map((country) => (
           <SwiperSlide key={country.id} onClick={openModal(country.id)}>
             <div className={'gallery__card'}>
-              <img src={country.image} alt="A street in Stockholm" />
+              <img src={country.image} alt="Image is loading" />
               <span className="country-title">{country.country}</span>
             </div>
           </SwiperSlide>
