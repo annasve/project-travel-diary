@@ -15,9 +15,9 @@ export const HomePage = () => {
       </p>
       {/* <Link to="/dashboard">EXPLORE →</Link> */}
       <Link to="/dashboard">
-        <button class="explore">
-          EXPLORE<span class="icon-right"></span>
-          <span class="icon-right after"></span>
+        <button className="explore">
+          EXPLORE<span className="icon-right"></span>
+          <span className="icon-right after"></span>
         </button>
       </Link>
     </div>

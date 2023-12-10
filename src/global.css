@@ -24,8 +24,6 @@ body {
 
   color: #fff0df;
   /*↑creamy white*/
-  /* background-color: #c05f50; */
-  /*↑temporary background color*/
 }
 
 a {
@@ -33,22 +31,10 @@ a {
   color: black;
 }
 
-/*multipurpose container*/
-/* .container {
-  display: flex;
-  flex-direction: column;
-  background-color: #BC2F19;
-} */
 
 .caudex {
   font-family: "Caudex", serif;
 }
-
-/*-----menu-----*/
-
-
-
-/*-------------*/
 
 main {
   padding: 2rem;

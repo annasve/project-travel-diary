@@ -7,10 +7,9 @@ export const PlaceDetailModal = ({
   closeModal,
   currentCountry,
 }) => {
-  console.log('one country from the modal', currentCountry);
   const { countryOverview } = currentCountry;
   const destinationList = currentCountry.popularDestinations.map((dest) => (
-    <li>{dest}</li>
+    <li key={dest[0]}>{dest}</li>
   ));
 
   return (

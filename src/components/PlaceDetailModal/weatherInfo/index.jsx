@@ -10,10 +10,7 @@ export const WeatherInfo = ({ capitalCity }) => {
 
   const city = capitalCity;
 
-  console.log(weatherData); //for testing
-
   //--------- function for getting day of the week from current date
-
   const currentDay = () => {
     const weekDays = [
       'Sunday',

@@ -4,15 +4,10 @@ import { useEffect, useState } from 'react';
 import { PlaceDetailModal } from '../../components/PlaceDetailModal';
 
 //----------
-//swiper
-// Import Swiper React components
+//Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-
-// import { Pagination } from 'swiper/modules';
-// import 'swiper/css/pagination';
 import { Mousewheel, Scrollbar } from 'swiper/modules';
-
 //----------
 
 const backendApi = import.meta.env.VITE_BACKEND_API_URL;
@@ -25,7 +20,6 @@ export const PlacesPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 700);
 
-  console.log('countries from PlacesPage', countries);
   useEffect(() => {
     document.body.className = 'places-background';
     window.addEventListener('resize', () => {
@@ -54,7 +48,6 @@ export const PlacesPage = () => {
   const openModal = (id) => () => {
     setIsModalClosed(false);
     setCountry(countries[id]);
-    console.log('id od country', id);
   };
 
   const closeModal = () => {
@@ -65,15 +58,10 @@ export const PlacesPage = () => {
     <div className="container--temp">
       <Swiper
         slidesPerView={isMobile ? 2 : 5}
-        //media  - fce isMobiledevice vrací t/f 1 nebo 3 slidy
         spaceBetween={isMobile ? 0 : 80}
         mousewheel={true}
         centeredSlides={true}
         loop={true}
-        // pagination={{
-        //   clickable: true,
-        // }}
-        // modules={[Pagination]}
         scrollbar={{
           hide: true,
         }}
@@ -91,6 +79,7 @@ export const PlacesPage = () => {
       </Swiper>
 
       <PlaceDetailModal
+        key={country.id}
         countries={countries}
         isModalClosed={isModalClosed}
         closeModal={closeModal}
